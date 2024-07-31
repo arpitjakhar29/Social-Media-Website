@@ -1,0 +1,104 @@
+/* Profile.module.css */
+
+.profileContainer {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #edf6f9, #d1e9f5);
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.profileHeader {
+  text-align: center;
+}
+
+.profileImage {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.profileImage:hover {
+  transform: scale(1.05);
+}
+
+.profilename {
+  font-size: 24px;
+  height: 50px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  color: #333;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profileBio {
+  font-style: italic;
+  color: #555;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profileLocation {
+  font-size: 14px;
+  color: #777;
+  text-align: center;
+}
+
+.profileStats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.profileStats span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #555;
+}
+
+.profileSkills {
+  margin-top: 20px;
+}
+
+.profileSkills h2 {
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.skillItem {
+  margin-bottom: 10px;
+}
+
+.skillName {
+  font-weight: bold;
+  color: #333;
+}
+
+.skillBarContainer {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.skillBar {
+  height: 10px;
+  background-color: #3498db;
+  border-radius: 5px;
+  transition: width 0.6s ease;
+}

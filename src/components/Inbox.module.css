@@ -1,0 +1,83 @@
+.inboxContainer {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.heading{
+  text-align: center;
+  height: 60px;
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  color: black;
+  font-family: cursive;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.messageList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.messageItem {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  background: linear-gradient(145deg, #e0e5ec, #f9f9f9);
+  border-radius: 10px;
+  box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.1), -7px -7px 15px rgba(255, 255, 255, 0.7);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.messageItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15), -10px -10px 20px rgba(255, 255, 255, 0.8);
+}
+
+.profileImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+  border: 2px solid #6c757d;
+  transition: border-color 0.2s ease;
+}
+
+.messageItem:hover .profileImage {
+  border-color: #007bff;
+}
+
+.messageContent {
+  flex-grow: 1;
+}
+
+.messageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.messageName {
+  font-weight: bold;
+  color: #343a40;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+}
+
+.messageTime {
+  font-size: 0.875em;
+  color: #6c757d;
+}
+
+.lastMessage {
+  margin: 0;
+  color: #495057;
+  font-style: italic;
+}
