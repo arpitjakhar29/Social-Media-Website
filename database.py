@@ -2,40 +2,30 @@ import os
 import random
 from datetime import datetime, timedelta
 
-def generate_random_dates(years: int, min_commits_per_month: int = 20):
-    start_date = datetime.now() - timedelta(days=years * 365)
-    end_date = datetime.now()
-    
-    commits = []
-    
-    for year in range(start_date.year, end_date.year + 1):
-        for month in range(1, 13):
-            # Ensure at least `min_commits_per_month` commits per month
-            days_in_month = [day for day in range(1, 29)]  # Limiting to 28 days to avoid Feb issues
-            commit_days = random.sample(days_in_month, min_commits_per_month)
+def random_date():
+    """Generate a random date within the past year."""
+    days_ago = random.randint(1, 365)  # Pick a random day in the past year
+    date = datetime.now() - timedelta(days=days_ago)
+    return date.strftime('%Y-%m-%d %H:%M:%S')
 
-            for day in commit_days:
-                commit_date = datetime(year, month, day)
+def make_commit(commit_count):
+    """Generate random commits with random timestamps."""
+    for _ in range(commit_count):
+        commit_date = random_date()
 
-                if commit_date <= end_date:
-                    # Decide random number of commits for this day (between 1 to 10)
-                    num_commits = random.randint(1, 10)
-                    for _ in range(num_commits):
-                        commits.append(commit_date.strftime('%Y-%m-%dT%H:%M:%S'))
+        with open("data.txt", "a") as file:
+            file.write(f'Commit on {commit_date}\n')
 
-    random.shuffle(commits)  # Shuffle commits for randomness
-    return commits
+        os.system("git add data.txt")
 
-def make_commits(dates):
-    for commit_datetime in dates:
-        with open('data.txt', 'a') as file:
-            file.write(f'Commit on {commit_datetime}\n')
+        # Windows-compatible way to set commit date
+        commit_command = f'git commit --date="{commit_date}" -m "Random Commit"'
+        os.system(commit_command)
 
-        os.system('git add data.txt')
-        os.system(f'GIT_COMMITTER_DATE="{commit_datetime}" git commit --date="{commit_datetime}" -m "Commit on {commit_datetime}"')
+    # Push to GitHub
+    os.system("git push")
 
-    os.system('git push')
+# Set total commits (random between 20 to 30 per month)
+total_commits = random.randint(240, 300)  # 12 months × (20 to 30 commits per month)
 
-years = 3  # Change this to the number of years you want to generate commits for
-commit_dates = generate_random_dates(years)
-make_commits(commit_dates)
+make_commit(total_commits)
